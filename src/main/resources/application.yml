@@ -1,0 +1,29 @@
+server:
+  port: 8090
+
+
+#security:
+#  oauth2:
+#    authorization:
+#      checkTokenAccess: isAuthenticated()
+#      jwt:
+#        keyValue: verysecretkey
+#    client:
+#      client-id: authService
+#      client-secret: authServiceSecret
+#      scope: all
+security:
+  oauth2:
+    resource:
+      userInfoUri: BUGFIX
+
+spring:
+  cloud:
+    config:
+      auth:
+        uri: /oauth/token
+        client-id: authService
+        client-secret: authServiceSecret
+        secret: verysecretkey
+        scope: all
+        grant-type: user
